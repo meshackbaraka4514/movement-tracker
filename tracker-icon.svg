@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Tracker icon">
+  <rect width="256" height="256" rx="48" fill="#146c5f"/>
+  <path d="M61 168c42-70 92 34 134-43" fill="none" stroke="#f7f5ed" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="61" cy="168" r="21" fill="#c9812d" stroke="#f7f5ed" stroke-width="8"/>
+  <circle cx="195" cy="125" r="21" fill="#1fa37a" stroke="#f7f5ed" stroke-width="8"/>
+</svg>
