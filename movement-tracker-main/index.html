@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#f7f5ed" />
+    <title>Movement Tracker</title>
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css?v=3" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="topbar" aria-label="Tracker status">
+        <div>
+          <p class="eyebrow">Phone tracker</p>
+          <h1>Movement Tracker</h1>
+        </div>
+        <div id="statusPill" class="status-pill idle" aria-live="polite">
+          <span class="status-dot"></span>
+          <span id="statusText">Idle</span>
+        </div>
+      </section>
+
+      <section class="controls" aria-label="Tracking controls">
+        <button id="startButton" class="button primary" type="button">Start</button>
+        <button id="stopButton" class="button" type="button" disabled>Stop</button>
+        <button id="exportButton" class="button" type="button" disabled>Export CSV</button>
+        <button id="clearButton" class="button danger" type="button" disabled>Clear</button>
+      </section>
+
+      <p id="message" class="message" role="status">Tracking is off.</p>
+
+      <section class="panel share-panel" aria-label="Live sharing">
+        <div class="panel-header compact">
+          <h2>Live Sharing</h2>
+          <a id="dashboardLink" class="maps-link" href="dashboard.html">Dashboard</a>
+        </div>
+        <div class="share-body">
+          <label class="field">
+            <span class="metric-label">Session code</span>
+            <input id="sessionInput" class="text-input" type="text" autocomplete="off" inputmode="latin" />
+          </label>
+          <div class="share-actions">
+            <button id="copyLinkButton" class="button" type="button">Copy Link</button>
+            <button id="newCodeButton" class="button" type="button">New Code</button>
+          </div>
+          <div class="metric sync-metric">
+            <span class="metric-label">Live sync</span>
+            <strong id="syncValue">Ready</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-grid">
+        <section class="panel map-panel" aria-label="Movement path">
+          <div class="panel-header">
+            <h2>Path</h2>
+            <div class="panel-header-actions">
+              <button id="recenterButton" class="map-action" type="button">Recenter</button>
+              <a id="mapsLink" class="maps-link is-disabled" href="#" target="_blank" rel="noreferrer">Open map</a>
+            </div>
+          </div>
+          <div class="map-frame">
+            <div id="map" class="map-canvas" role="img" aria-label="Recorded movement path"></div>
+            <p id="mapEmpty" class="map-empty">Press Start to record a path</p>
+          </div>
+        </section>
+
+        <section class="panel metrics-panel" aria-label="Live movement details">
+          <div class="metric">
+            <span class="metric-label">Distance</span>
+            <strong id="distanceValue">0 m</strong>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Points</span>
+            <strong id="pointsValue">0</strong>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Accuracy</span>
+            <strong id="accuracyValue">--</strong>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Speed</span>
+            <strong id="speedValue">--</strong>
+          </div>
+          <div class="metric wide">
+            <span class="metric-label">Last location</span>
+            <strong id="locationValue">--</strong>
+          </div>
+          <div class="metric wide">
+            <span class="metric-label">Updated</span>
+            <strong id="updatedValue">--</strong>
+          </div>
+        </section>
+      </section>
+
+      <section class="panel log-panel" aria-label="Recent locations">
+        <div class="panel-header">
+          <h2>Recent</h2>
+          <span id="storageLabel" class="storage-label">Saved on this browser</span>
+        </div>
+        <ol id="pointsList" class="points-list"></ol>
+      </section>
+    </main>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="map.js?v=3"></script>
+    <script src="app.js?v=3"></script>
+  </body>
+</html>

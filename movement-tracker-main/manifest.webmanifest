@@ -1,0 +1,16 @@
+{
+  "name": "Movement Tracker",
+  "short_name": "Tracker",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f7f5ed",
+  "theme_color": "#f7f5ed",
+  "icons": [
+    {
+      "src": "tracker-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
